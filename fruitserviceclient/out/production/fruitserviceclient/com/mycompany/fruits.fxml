@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <TabPane prefHeight="394.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="View Fruits">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="329.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="fruitsTable" layoutX="14.0" layoutY="14.0" prefHeight="258.0" prefWidth="310.0">
+                          <columns>
+                            <TableColumn fx:id="fruitNameCol" prefWidth="155.0" text="Fruit Name" />
+                            <TableColumn fx:id="fruitPriceCol" prefWidth="154.0" text="Fruit Price" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="337.0" layoutY="14.0" text="Select a fruit and enter quantity to get cost" />
+                        <TextField fx:id="quantityTextField" layoutX="337.0" layoutY="44.0" prefHeight="25.0" prefWidth="177.0" promptText="Enter quantity here for total" />
+                        <Button fx:id="calculateTotalButton" layoutX="523.0" layoutY="44.0" mnemonicParsing="false" onAction="#calculateTotal" text="Calculate" />
+                        <Label fx:id="totalLabel" layoutX="337.0" layoutY="76.0" text="TOTAL : ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="338.0" layoutY="109.0" prefHeight="7.0" prefWidth="252.0" />
+                        <Label layoutX="337.0" layoutY="123.0" text="Select a fruit and enter new values to update" />
+                        <TextField fx:id="updateFruitNameTextField" layoutX="337.0" layoutY="149.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter new fruit name" />
+                        <TextField fx:id="updateFruitPriceTextField" layoutX="337.0" layoutY="189.0" prefHeight="25.0" prefWidth="177.0" promptText="Enter new fruit price" />
+                        <Button layoutX="521.0" layoutY="189.0" mnemonicParsing="false" onAction="#updateFruit" prefHeight="25.0" prefWidth="69.0" text="Update" />
+                        <Separator layoutX="338.0" layoutY="228.0" prefHeight="7.0" prefWidth="252.0" />
+                        <Label layoutX="337.0" layoutY="245.0" text="Select fruit and click delete to remove it" />
+                        <Button layoutX="338.0" layoutY="281.0" mnemonicParsing="false" onAction="#deleteFruit" prefHeight="25.0" prefWidth="252.0" style="-fx-background-color: #ff7369;" text="DELETE !" />
+                        <Button layoutX="14.0" layoutY="281.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #4287f5;" text="Add to cart !" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Add New Fruit">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="newFruitNameTextField" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="576.0" promptText="Enter Fruit Name Here" />
+                        <TextField fx:id="newFruitPriceTextField" layoutX="14.0" layoutY="50.0" prefHeight="25.0" prefWidth="452.0" promptText="Enter Fruit Price Here" />
+                        <Button fx:id="saveFruitButton" layoutX="477.0" layoutY="50.0" mnemonicParsing="false" onAction="#saveFruit" prefHeight="25.0" prefWidth="113.0" text="Save Fruit" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="View Cart">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="cartTable" layoutX="14.0" layoutY="14.0" prefHeight="264.0" prefWidth="281.0">
+                           <columns>
+                              <TableColumn fx:id="cartfruitNameCol" prefWidth="92.0" text="Fruit Name" />
+                              <TableColumn fx:id="cartfruitPriceCol" prefWidth="93.0" text="Fruit Price" />
+                              <TableColumn fx:id="cartfruitQuantityCol" prefWidth="96.0" text="Fruit Quantity" />
+                           </columns>
+                        </TableView>
+                        <Label fx:id="cartTotalLabel" layoutX="300.0" layoutY="14.0" text="CART TOTAL : ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="521.0" layoutY="56.0" mnemonicParsing="false" onAction="#calculateChange" text="Calculate" />
+                        <Label fx:id="changeAmountLabel" layoutX="300.0" layoutY="96.0" text="CHANGE AMOUNT: ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="amountTextField" layoutX="300.0" layoutY="56.0" prefHeight="25.0" prefWidth="214.0" promptText="Enter amount to calculate change" />
+                        <Button layoutX="14.0" layoutY="283.0" mnemonicParsing="false" onAction="#deleteCart" prefHeight="25.0" prefWidth="252.0" style="-fx-background-color: #ff7369;" text="DELETE CART" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <bottom>
+      <Pane prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="statusLabel" layoutX="39.0" layoutY="15.0" text="[STATUS APPEARS HERE]" />
+            <Label layoutX="14.0" layoutY="15.0" text="&gt;&gt;" />
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
